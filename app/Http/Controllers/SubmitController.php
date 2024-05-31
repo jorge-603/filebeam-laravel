@@ -24,12 +24,12 @@ class SubmitController extends Controller
             $purifiedContent = file_get_contents($file->getPathname());
             $purifiedContent = htmlspecialchars($purifiedContent, ENT_QUOTES | ENT_HTML5);
             Storage::put('public/' . $newFileName, $purifiedContent);
-            $url = 'https://127.0.0.1:8000' . '/file/' . $newFileName;
+            $url = 'https://filebeam.xyz' . '/file/' . $newFileName;
             return response($url, 200);
         }
 
         $request->file('file')->storeAs('public', $newFileName);
-        $url = 'https://127.0.0.1:8000' . '/file/' . $newFileName;
+        $url = 'https://filebeam.xyz' . '/file/' . $newFileName;
         return response($url, 200);     
     }
 
